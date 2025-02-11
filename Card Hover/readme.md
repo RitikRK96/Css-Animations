@@ -4,7 +4,7 @@ A sleek **3D hover effect** for image cards using **pure CSS**. As you hover ove
 
 ## 🚀 Live Demo
 
-🔗 [View Here](https://ritikrk96.github.io/Css-Components/Card%20Hover/)
+🔗 [View Here](https://ritikrk96.github.io/Css-Animations/Card%20Hover/)
 
 ## 📌 Features
 
@@ -17,7 +17,7 @@ A sleek **3D hover effect** for image cards using **pure CSS**. As you hover ove
 
 1. **Clone the repository**
     ```sh
-    git clone https://github.com/ritikrk96/Css-Components.git
+    git clone https://github.com/ritikrk96/Css-Animations.git
     ```
 2. **Navigate into the project folder**
     ```sh
@@ -33,12 +33,10 @@ A sleek **3D hover effect** for image cards using **pure CSS**. As you hover ove
 - **HTML5**
 - **CSS3 (Flexbox & 3D Transforms)**
 
-## 📌 More CSS Components Coming Soon! 🚀  
-This repository will include **more CSS components** like buttons, loaders, navigation bars, and more.  
-
-Stay tuned! ⭐ **Star this repo** if you like the project.  
-
 ---
+## 🤝 Contribute  
+If you want to enhance this component, feel free to fork the repo and submit a pull request!  
 
-📌 **Author**: Ritik RK  
-💡 **Contributions & Suggestions Welcome!**  
+📌 **Author**: Ritik Kumar  
+⭐ **Star this repository** if you like this project! 🚀 
+---
