@@ -1,8 +1,7 @@
-Here’s your updated **README.md** file for your **Css-Components** repository, including both **Animate on Scroll** and **Card Hover**, with room for future components.  
-
+ 
 ---
 
-# 🎨 Css-Components 🚀  
+# 🎨 Css-Animations 🚀  
 
 A collection of **modern CSS UI components** with smooth animations and effects, designed to enhance user experience.  
 
