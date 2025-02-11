@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animate on Scroll</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #f8f8f8;
+      }
+
+      aside {
+        top: 0;
+        height: 100vh;
+        width: 240px;
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        position: fixed;
+        z-index: 999;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav ul li {
+        font-size: 18px;
+        padding: 15px;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+        padding-left: 30px;
+        border-radius: 8px;
+      }
+
+      nav ul li:hover {
+        background-color: #7e7c7c;
+      }
+
+      .container {
+        margin-left: 260px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        padding: 20px;
+        justify-content: space-between;
+      }
+      .text-container{
+        margin-left: 260px;
+        margin-top: 20px;
+      }
+
+      /* Card Styles */
+      .card {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        justify-content: space-around;
+      }
+
+      .card1 {
+        width: 300px;
+        height: 170px;
+        background: red;
+      }
+      .card2 {
+        width: 200px;
+        height: 170px;
+        background: blue;
+      }
+      .card3 {
+        width: 350px;
+        height: 170px;
+        background: yellow;
+        color: black;
+      }
+      .card4 {
+        width: 250px;
+        height: 170px;
+        background: green;
+      }
+      .card5 {
+        width: 400px;
+        height: 170px;
+        background: purple;
+      }
+      .card6 {
+        width: 280px;
+        height: 170px;
+        background: orange;
+      }
+
+      @keyframes appear {
+        from {
+          opacity: 0;
+          /* clip-path: inset(100% 100% 0 0); */
+          transform: translateX(-200px);
+        }
+        to {
+          opacity: 1;
+          /* clip-path: inset(0 0 0 0); */
+          transform: translateX(0px);
+        }
+      }
+      .card {
+        animation: appear linear;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+      }
+    </style>
+  </head>
+  <body>
+    <aside>
+      <nav>
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Portfolio</li>
+          <li>Services</li>
+          <li>Contact Us</li>
+        </ul>
+      </nav>
+    </aside>
+    <div class="text-container">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut error ducimus
+      saepe doloribus ad fugiat illum, dicta consequatur! Repudiandae, optio ut.
+      Temporibus aspernatur corrupti, doloremque eaque et quibusdam cumque vel
+      nulla obcaecati sapiente molestiae qui voluptatem debitis? Magni ullam
+      adipisci, animi dolorum qui obcaecati eius libero enim nostrum a quasi
+      laborum deserunt quam veniam reiciendis, aspernatur sunt dolorem minima
+      numquam facilis. Eligendi ad ea nemo blanditiis sequi minus ipsam pariatur
+      quo, soluta iusto sit, dicta laboriosam consectetur. Non, minus
+      repudiandae nostrum perferendis cumque sequi. Iste nisi facere totam sunt
+      sed quos, maxime doloribus repellat atque, laudantium obcaecati fugiat
+      delectus. Pariatur odit commodi repellat, deserunt quae itaque numquam
+      quas. Deserunt repellendus facere nostrum. Iure quis quaerat minima vel
+      deleniti nobis similique molestias quod iste ipsa! Officiis asperiores vel
+      obcaecati quam enim harum. Exercitationem quis incidunt, beatae esse
+      reprehenderit non voluptates vel, tenetur aliquid aspernatur odio soluta
+      nostrum adipisci nisi, nihil quasi rerum in. Enim maiores quasi commodi,
+      deserunt architecto nesciunt numquam perferendis, consequatur rem fugiat
+      accusamus officia autem odio eligendi magni vitae maxime? Eveniet quod,
+      enim earum similique sunt, ad ut expedita harum animi facere voluptas odio
+      dolores alias perspiciatis. Quos consequuntur reprehenderit possimus
+      nostrum commodi qui aliquam quibusdam nemo perspiciatis?
+    </div>
+
+    <div class="container">
+      <div class="card card1">Card 1</div>
+      <div class="card card2">Card 2</div>
+      <div class="card card3">Card 3</div>
+      <div class="card card4">Card 4</div>
+      <div class="card card5">Card 5</div>
+      <div class="card card6">Card 6</div>
+      <div class="card card1">Card 7</div>
+      <div class="card card3">Card 8</div>
+      <div class="card card5">Card 9</div>
+      <div class="card card2">Card 10</div>
+      <div class="card card6">Card 11</div>
+      <div class="card card4">Card 12</div>
+      <div class="card card1">Card 1</div>
+      <div class="card card2">Card 2</div>
+      <div class="card card3">Card 3</div>
+      <div class="card card4">Card 4</div>
+      <div class="card card5">Card 5</div>
+      <div class="card card6">Card 6</div>
+      <div class="card card1">Card 7</div>
+      <div class="card card3">Card 8</div>
+      <div class="card card5">Card 9</div>
+      <div class="card card2">Card 10</div>
+      <div class="card card6">Card 11</div>
+      <div class="card card4">Card 12</div>
+      <div class="card card1">Card 1</div>
+      <div class="card card2">Card 2</div>
+      <div class="card card3">Card 3</div>
+      <div class="card card4">Card 4</div>
+      <div class="card card5">Card 5</div>
+      <div class="card card6">Card 6</div>
+      <div class="card card1">Card 7</div>
+      <div class="card card3">Card 8</div>
+      <div class="card card5">Card 9</div>
+      <div class="card card2">Card 10</div>
+      <div class="card card6">Card 11</div>
+      <div class="card card4">Card 12</div>
+    </div>
+
+    <div class="text-conainer">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta magni
+      pariatur totam, libero perspiciatis officia ullam quam reiciendis odio
+      possimus perferendis expedita dolores minima molestiae explicabo incidunt
+      est veniam. Quibusdam ipsam eveniet quo distinctio dignissimos obcaecati
+      tenetur modi iure voluptatem exercitationem? Sapiente officiis
+      necessitatibus omnis consequatur vero? Illum veritatis voluptatibus minima
+      enim perferendis qui temporibus impedit praesentium quisquam, maxime
+      facere ratione distinctio id possimus ullam, debitis quasi! Iusto tempore
+      sint ducimus voluptatum ipsum a, ullam rerum repellat recusandae delectus
+      quas architecto officiis? Ad, nulla porro eaque mollitia rem ipsam quis
+      repudiandae nemo, illum earum architecto eveniet velit? Cupiditate
+      recusandae natus hic? Facilis temporibus, fuga molestias veniam rerum
+      facere, repellat nam corrupti voluptatibus excepturi officia quo
+      reprehenderit perferendis, ex nihil recusandae numquam ipsum aliquid rem.
+      Velit esse nihil numquam qui quas facere beatae neque libero? Unde illo
+      culpa laboriosam quaerat consequatur soluta, doloremque minus eos deleniti
+      ipsam. Explicabo quam quibusdam, itaque ex aut sint rerum omnis amet sunt
+      beatae dignissimos facere maxime minima doloremque debitis consectetur,
+      dolorum necessitatibus a nisi iusto temporibus quasi ipsa rem obcaecati.
+      Sunt consequatur quo numquam culpa necessitatibus reprehenderit quasi
+      velit alias corrupti molestias laborum amet commodi, nemo enim sint
+      blanditiis ullam vel eaque tenetur? Quisquam vitae aliquam cupiditate
+      suscipit provident natus, quos ad! Tenetur qui consequatur adipisci facere
+      voluptatum ex ab dolores. Mollitia explicabo voluptatum culpa vero
+      corporis dolorem consequuntur tenetur, excepturi, consectetur rerum
+      deleniti tempore velit fugiat debitis sint iusto corrupti. Tempore, velit
+      aspernatur. Impedit saepe ea, eaque fuga vel inventore quis neque
+      laboriosam debitis, distinctio voluptates assumenda ab perferendis
+      perspiciatis minima hic eius aliquam quaerat, facilis quae velit
+      quibusdam. Quia, quas sit, dolorum animi tenetur nam velit facere odit
+      magni beatae esse dignissimos sequi aut, sed dolore! Vel magni nemo dolor
+      sit in cupiditate quasi alias ex quod libero placeat eveniet mollitia amet
+      repudiandae labore, a laborum magnam architecto voluptates. Saepe mollitia
+      adipisci, praesentium enim quisquam ipsam provident nihil incidunt
+      cupiditate unde iste impedit libero accusantium molestiae quos labore
+      vitae asperiores ipsum earum quidem repellat velit! Necessitatibus porro
+      sequi sunt nobis repudiandae odio alias impedit esse corrupti, eius illo
+      quasi velit laborum assumenda. Libero facilis optio et corporis mollitia
+      voluptatem nesciunt! Recusandae consectetur animi soluta consequuntur
+      maxime incidunt explicabo quam nesciunt voluptatum perspiciatis neque nemo
+      expedita nihil et sequi, sed beatae debitis a! Reiciendis, maxime
+      doloribus impedit ut nesciunt excepturi reprehenderit quam delectus
+      corrupti temporibus ipsam expedita earum? Facilis dolores aperiam illum
+      tempora molestias minima ipsam libero sunt, maiores eos accusantium ipsum
+      distinctio eveniet consequatur voluptatem quas! Labore ut quam porro dolor
+      adipisci rem facilis libero magni aspernatur eos itaque unde doloribus,
+      perspiciatis cum velit cupiditate ex id laborum aliquid aut culpa
+      pariatur? Reprehenderit dolor laudantium sint est, quia quisquam cum
+      cumque culpa consectetur accusantium voluptate adipisci unde debitis
+      alias, aspernatur numquam ad porro officiis amet. Error consequatur beatae
+      velit qui veritatis dolore aliquam magni itaque officiis maxime, aut
+      fugiat impedit voluptas incidunt commodi provident est culpa dolor
+      pariatur officia accusamus suscipit architecto quibusdam voluptatibus!
+      Culpa dolorum quisquam veritatis cumque. Esse veniam eveniet vel?
+    </div>
+  </body>
+</html>
