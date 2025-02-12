@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #212121;
+        }
+
+        .container {
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .slider {
+            display: flex;
+            aspect-ratio: 16 / 9;
+            overflow-x: hidden; 
+            overflow-y: hidden; 
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+            border-radius: 0.5rem;
+            position: relative;
+        }
+
+        .slide {
+            flex: 1 0 100%;
+            scroll-snap-align: start;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .text-overlay {
+            position: absolute;
+            bottom: 40px;
+            left: 30px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .text-overlay h2 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .text-overlay p {
+            margin: 5px 0 0;
+            font-size: 1.2rem;
+        }
+
+        .slider-nav {
+            display: flex;
+            column-gap: 1rem;
+            position: absolute;
+            bottom: 1.25rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .slider-nav a {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background-color: #fff;
+            opacity: 0.75;
+            transition: opacity ease 250ms;
+        }
+
+        .slider-nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="slider-wrapper">
+            <div class="slider" id="slider">
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1656464868371-602be27fd4c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="Orange Planet" />
+                    <div class="text-overlay">
+                        <h2>Orange Planet</h2>
+                        <p>A mysterious planet with glowing lava.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1657586640569-4a3d4577328c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="Green Planet" />
+                    <div class="text-overlay">
+                        <h2>Green Planet</h2>
+                        <p>An alien world covered in lush forests.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1656077217715-bdaeb06bd01f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="Blue Planet" />
+                    <div class="text-overlay">
+                        <h2>Blue Planet</h2>
+                        <p>A water-dominated planet with deep oceans.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <a href="#slide-1"></a>
+                <a href="#slide-2"></a>
+                <a href="#slide-3"></a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let slider = document.getElementById("slider");
+        let slides = document.querySelectorAll(".slide");
+        let currentIndex = 0;
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            slider.scrollLeft = slider.clientWidth * currentIndex;
+        }
+
+        setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    </script>
+</body>
+</html>
