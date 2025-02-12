@@ -52,7 +52,7 @@ open index.html   # macOS
 ### 3️⃣ **Autoplay Image Carousel** 🎠✨  
 A sleek, **autoplaying image carousel** with **text overlays** on each slide. The carousel **automatically transitions every 3 seconds**, ensuring a **smooth and visually appealing experience**.  
 
-🔗 **[Live Demo](https://ritikrk96.github.io/Css-Animations/Carousel/)**  
+🔗 **[Live Demo](https://ritikrk96.github.io/Css-Animations/Carousel/index.html)**  
 
 #### ⚡ Features  
 ✔ **Autoplay functionality (every 3 seconds)**  
