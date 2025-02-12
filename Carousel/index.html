@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carousel</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             background-color: #212121;
         }
@@ -28,8 +30,8 @@
         .slider {
             display: flex;
             aspect-ratio: 16 / 9;
-            overflow-x: hidden; 
-            overflow-y: hidden; 
+            overflow-x: hidden;
+            overflow-y: hidden;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
@@ -69,7 +71,7 @@
             font-size: 1.2rem;
         }
 
-        
+
         .slider-nav {
             display: flex;
             column-gap: 1rem;
@@ -94,26 +96,30 @@
         }
     </style>
 </head>
+
 <body>
     <section class="container">
         <div class="slider-wrapper">
             <div class="slider" id="slider">
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1656464868371-602be27fd4c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="Orange Planet" />
+                <div class="slide" id="slide-1">
+                    <img src="https://images.unsplash.com/photo-1656464868371-602be27fd4c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80"
+                        alt="Orange Planet" />
                     <div class="text-overlay">
                         <h2>Orange Planet</h2>
                         <p>A mysterious planet with glowing lava.</p>
                     </div>
                 </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1657586640569-4a3d4577328c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="Green Planet" />
+                <div class="slide" id="slide-2">
+                    <img src="https://images.unsplash.com/photo-1657586640569-4a3d4577328c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80"
+                        alt="Green Planet" />
                     <div class="text-overlay">
                         <h2>Green Planet</h2>
                         <p>An alien world covered in lush forests.</p>
                     </div>
                 </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1656077217715-bdaeb06bd01f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="Blue Planet" />
+                <div class="slide" id="slide-3">
+                    <img src="https://images.unsplash.com/photo-1656077217715-bdaeb06bd01f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80"
+                        alt="Blue Planet" />
                     <div class="text-overlay">
                         <h2>Blue Planet</h2>
                         <p>A water-dominated planet with deep oceans.</p>
@@ -131,14 +137,104 @@
     <script>
         let slider = document.getElementById("slider");
         let slides = document.querySelectorAll(".slide");
-        let currentIndex = 0;
+        let navDots = document.querySelectorAll(".slider-nav a");
 
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % slides.length;
-            slider.scrollLeft = slider.clientWidth * currentIndex;
+        let currentIndex = 0;
+        let autoSlideInterval;
+        let isDragging = false, startX, scrollLeft;
+
+        // Function to update active dot  
+        function updateActiveDot() {
+            navDots.forEach((dot, index) => {
+                dot.style.opacity = index === currentIndex ? "1" : "0.5";
+            });
         }
 
-        setInterval(nextSlide, 3000); // Change slide every 3 seconds
+        // Function to go to a specific slide  
+        function goToSlide(index) {
+            currentIndex = index;
+            slider.scrollTo({ left: slider.clientWidth * currentIndex, behavior: "smooth" });
+            updateActiveDot();
+            resetAutoSlide();
+        }
+
+        // Function to move to the next slide  
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            goToSlide(currentIndex);
+        }
+
+        // Function to reset the auto-slide interval  
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(nextSlide, 3000);
+        }
+
+        // Event listeners for navigation dots  
+        navDots.forEach((dot, index) => {
+            dot.addEventListener("click", (e) => {
+                e.preventDefault();
+                goToSlide(index);
+            });
+        });
+
+        // Touch & Mouse Drag Support  
+        slider.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+            slider.style.scrollBehavior = "auto"; // Disable smooth scrolling during drag
+        });
+
+        slider.addEventListener("mousemove", (e) => {
+            if (!isDragging) return;
+            let x = e.pageX - slider.offsetLeft;
+            let walk = (x - startX) * 1.5; // Increase drag sensitivity
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        slider.addEventListener("mouseup", () => {
+            isDragging = false;
+            slider.style.scrollBehavior = "smooth"; // Re-enable smooth scrolling
+            detectCurrentSlide();
+        });
+
+        slider.addEventListener("mouseleave", () => {
+            isDragging = false;
+        });
+
+        // Touch Events for Mobile  
+        slider.addEventListener("touchstart", (e) => {
+            isDragging = true;
+            startX = e.touches[0].pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+            slider.style.scrollBehavior = "auto";
+        });
+
+        slider.addEventListener("touchmove", (e) => {
+            if (!isDragging) return;
+            let x = e.touches[0].pageX - slider.offsetLeft;
+            let walk = (x - startX) * 1.5;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        slider.addEventListener("touchend", () => {
+            isDragging = false;
+            slider.style.scrollBehavior = "smooth";
+            detectCurrentSlide();
+        });
+
+        // Detect current slide after drag  
+        function detectCurrentSlide() {
+            let newIndex = Math.round(slider.scrollLeft / slider.clientWidth);
+            goToSlide(newIndex);
+        }
+
+        // Start auto-slide  
+        autoSlideInterval = setInterval(nextSlide, 3000);
+        updateActiveDot(); // Set initial active dot
+
     </script>
 </body>
+
 </html>
