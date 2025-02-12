@@ -71,6 +71,37 @@
             font-size: 1.2rem;
         }
 
+        @media (max-width: 768px) {
+            .text-overlay {
+                padding: 8px 12px;
+                border-radius: 4px;
+            }
+
+            .text-overlay h2 {
+                font-size: 1.4rem;
+            }
+
+            .text-overlay p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .text-overlay {
+                text-align: center;
+                width: 80%;
+                padding: 6px 10px;
+            }
+
+            .text-overlay h2 {
+                font-size: 1.2rem;
+            }
+
+            .text-overlay p {
+                font-size: 0.9rem;
+            }
+        }
+
 
         .slider-nav {
             display: flex;
@@ -83,9 +114,9 @@
         }
 
         .slider-nav a {
-            width: 0.5rem;
+            width: 2rem;
             height: 0.5rem;
-            border-radius: 50%;
+            border-radius: 5px;
             background-color: #fff;
             opacity: 0.75;
             transition: opacity ease 250ms;
