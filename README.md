@@ -93,6 +93,39 @@ open index.html   # macOS
 
 ---
 
+### 5️⃣ **Background Animation 🌌✨**  
+A stunning **background animation** using **HTML5 Canvas and JavaScript**, featuring a **network of interconnected particles** that dynamically move, creating an engaging and futuristic effect.  
+
+🔗 **[Live Demo](https://ritikrk96.github.io/Css-Animations/Background%20Animations/index.html/)**  
+
+#### ⚡ Features  
+✔ **Smooth Animated Particle Network**  
+✔ **Lightweight & Optimized Performance**  
+✔ **Fully Responsive Canvas Background**  
+✔ **Customizable Particle Size & Speed**  
+✔ **Easy to Integrate into Any Website**  
+
+#### 📂 Installation & Usage  
+```sh
+git clone https://github.com/RitikRK96/Css-Animations.git
+cd Css-Animations/Background Animations
+start index.html  # Windows  
+open index.html   # macOS  
+```  
+
+#### 🎨 Customization  
+You can tweak animation settings in `script.js`:  
+```js
+const settings = {  
+    particleCount: 50,  
+    lineOpacity: 0.2,  
+    speed: 2  
+};
+```  
+Simply update these values to customize the animation!  
+
+---
+
 ## 🛠️ Technologies Used  
 - **HTML5** (Structure)  
 - **CSS3** (Flexbox, Transforms, Keyframes, Grid)  
@@ -107,3 +140,4 @@ This repository will include **more CSS components** like buttons, loaders, navi
 💡 **Contributions & Suggestions Welcome!**  
 
 ---
+
