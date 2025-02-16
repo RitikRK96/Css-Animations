@@ -7,7 +7,7 @@ This project showcases an interactive background animation using **HTML5 Canvas 
 
 ## 🚀 Live Demo  
 
-🔗 [View Demo](https://ritikrk96.github.io/Css-Animations/Background%20Animations/index.html/) *
+🔗 [View Demo](https://ritikrk96.github.io/Css-Animations/Background%20Animations/index.html) 
 
 ## 📌 Features  
 
